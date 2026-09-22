@@ -1,0 +1,21 @@
+{
+  "name": "odin-binary-search-trees",
+  "version": "1.0.0",
+  "description": "This project consists of two classes:\r - `Node` which has an attribute for the data it stores as well as its left and right children\r - `Tree` which accepts an array when initialized and has a `root` attribute which uses the return value of `buildTree()`",
+  "main": "binarySearchTree.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dianedoan/odin-binary-search-trees.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/dianedoan/odin-binary-search-trees/issues"
+  },
+  "homepage": "https://github.com/dianedoan/odin-binary-search-trees#readme"
+}
