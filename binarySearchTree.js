@@ -1,6 +1,6 @@
 class Node {
-  constructor(value) {
-    this.value = value;
+  constructor(data) {
+    this.data = data;
     this.left = null;
     this.right = null;
   }
@@ -17,7 +17,8 @@ class Tree {
     const sorted = array.sort((a, b) => a - b);
   
     // remove any duplicate values
-    const duplicatesRemoved = sorted.filter((item, index) => sorted.indexOf(item) === index);
+    // const duplicatesRemoved = sorted.filter((item, index) => sorted.indexOf(item) === index);
+    const duplicatesRemoved = [...new Set(sorted)];
 
     return duplicatesRemoved;
   }
@@ -31,8 +32,8 @@ class Tree {
     if (start > end) return null;
 
     // find median value and set as root node
-    let mid = start + Math.floor((end - start) / 2);
-    let root = new Node(array[mid]);
+    const mid = start + Math.floor((end - start) / 2);
+    const root = new Node(array[mid]);
     
     // recursively build tree
     root.left = this.#buildTreeRecursive(array, start, mid - 1);
@@ -40,7 +41,26 @@ class Tree {
   
     return root;
   }
-  
+
+  // accepts a value and returns true or false based on if the given value is in the tree or not
+  includes(value) {
+    return this.includesRecursive(this.root, value);
+  }
+
+  includesRecursive(node, value) {
+    // base case
+    if (node == null) return false;
+
+    // value found
+    if (node.data == value) return true;
+
+    // search for value
+    if (value < node.data) {
+      return this.includesRecursive(node.left, value);
+    } else {
+      return this.includesRecursive(node.right, value);
+    }
+  }
 }
 
 export { Node, Tree };
