@@ -212,7 +212,26 @@ class Tree {
   
   // accepts a callback as a parameter and traverses the tree in depth-first postorder traversal and passes each value to the provided callback
   postOrderForEach(callback) {
+    if (typeof callback !== "function") {
+      throw new Error("A Callback function is required!");
+    }
 
+    // traverse in depth-level order
+    this.postOrderForEachRecursive(this.root, callback);
+  }
+
+  postOrderForEachRecursive(node, callback) {
+    // base case
+    if (node == null) return;
+
+    // traverse left subtree
+    this.postOrderForEachRecursive(node.left, callback);
+
+    // traverse right subtree
+    this.postOrderForEachRecursive(node.right, callback);
+
+    // visit current node
+    callback(node.data);
   }
 
 }

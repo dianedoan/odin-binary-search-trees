@@ -37,3 +37,7 @@ tree.inOrderForEach((value) => {
 tree.preOrderForEach((value) => {
   console.log(value);
 });
+
+tree.postOrderForEach((value) => {
+  console.log(value);
+});
