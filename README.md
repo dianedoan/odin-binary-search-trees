@@ -12,6 +12,12 @@ The `Tree` class contains the following functions:
   - The function does nothing if the given value doesn't exist in the tree
 - `levelOrderForEach(callback)` accepts a callback function as its parameter, traverses the tree in breadth-first level order, and calls the callback on each value as it traverses passing each value (not the nodes) as an argument
   - If no callback function is provided it throws an `Error` reporting that a callback is required
+- `inOrderForEach(callback)` accepts a callback as a parameter and traverses the tree in depth-first inorder traversal (left -> root -> right) and passes each value to the provided callback
+  - If no callback function is provided it throws an `Error` reporting that a callback is required
+- `preOrderForEach(callback)` accepts a callback as a parameter and traverses the tree in depth-first preorder traversal (root -> left -> right) and passes each value to the provided callback
+  - If no callback function is provided it throws an `Error` reporting that a callback is required
+- `postOrderForEach(callback)` accepts a callback as a parameter and traverses the tree in depth-first postorder traversal (root -> left -> right) and passes each value to the provided callback
+  - If no callback function is provided it throws an `Error` reporting that a callback is required
 
 ## Description
 This project demonstrates the skills learnt from the JavaScript Course in The Odin Project up until the [Common Data Structures and Algorithms](https://www.theodinproject.com/lessons/javascript-common-data-structures-and-algorithms) topic.

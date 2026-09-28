@@ -158,7 +158,41 @@ class Tree {
         queue.push(currentNode.right);
       }
     }
-    
+  }
+
+  // accepts a callback as a parameter and traverses the tree in depth-first inorder traversal and passes each value to the provided callback
+  inOrderForEach(callback) {
+    // if no callback function is provided, throw an Error reporting that a callback is required
+    if (typeof callback !== "function") {
+      throw new Error("A callback function is required!");
+    }
+
+    // traverse tree in depth-level order
+    this.inOrderForEachRecursive(this.root, callback);
+  }
+  
+  inOrderForEachRecursive(node, callback) {
+    // base case
+    if (node == null) return;
+
+    // traverse left subtree
+    this.inOrderForEachRecursive(node.left, callback);
+  
+    // visit current node
+    callback(node.data);
+  
+    // traverse right subtree
+    this.inOrderForEachRecursive(node.right, callback);
+  }
+  
+  // accepts a callback as a parameter and traverses the tree in depth-first preorder traversal and passes each value to the provided callback
+  preOrderForEach(callback) {
+
+  }
+  
+  // accepts a callback as a parameter and traverses the tree in depth-first postorder traversal and passes each value to the provided callback
+  postOrderForEach(callback) {
+
   }
 
 }
