@@ -61,6 +61,30 @@ class Tree {
       return this.includesRecursive(node.right, value);
     }
   }
+
+  // accepts a value and inserts a new node with that value into the tree that preserves the binary search property
+  insert(value) {
+    // do nothing if value already exists in tree
+    if (this.includes(value)) return;
+
+    return this.insertRecursive(this.root, value);
+  }
+
+  insertRecursive(node, value) {
+    // base case: insert new node
+    if (node == null) return new Node(value);
+
+    // every node to its left must have a lower value
+    if (value < node.data) {
+      node.left = this.insertRecursive(node.left, value);
+    
+    } else if (value > node.data) { // every node to its right must have a greater value\
+      node.right = this.insertRecursive(node.right, value);
+    }
+
+    return node;
+  }
+
 }
 
 export { Node, Tree };
