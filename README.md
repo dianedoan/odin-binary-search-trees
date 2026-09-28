@@ -8,6 +8,8 @@ The `Tree` class contains the following functions:
 - `insert(value)` accepts a value and returns `true` if the given value is in the tree and `false` if it is not found in the tree
 - `insert(value)` accepts a value and inserts a new node with that value into the tree that preserves the binary search property
   - The function does nothing if it is called with a value that already exists in the tree
+- `deleteItem(value)` accepts a value and removes it from the tree
+  - The function does nothing if the given value doesn't exist in the tree
 
 ## Description
 This project demonstrates the skills learnt from the JavaScript Course in The Odin Project up until the [Common Data Structures and Algorithms](https://www.theodinproject.com/lessons/javascript-common-data-structures-and-algorithms) topic.

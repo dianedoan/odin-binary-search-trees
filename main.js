@@ -22,5 +22,6 @@ console.log(tree.includes(0));
 console.log(tree.insert(4));
 console.log(tree.insert(8));
 console.log(tree.insert(5));
-console.log(tree);
+prettyPrint(tree.root);
+console.log(tree.deleteItem(3));
 prettyPrint(tree.root);

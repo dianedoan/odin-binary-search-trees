@@ -57,7 +57,7 @@ class Tree {
     // search for value
     if (value < node.data) {
       return this.includesRecursive(node.left, value);
-    } else {
+    } else if (value > node.data) {
       return this.includesRecursive(node.right, value);
     }
   }
@@ -78,8 +78,52 @@ class Tree {
     if (value < node.data) {
       node.left = this.insertRecursive(node.left, value);
     
-    } else if (value > node.data) { // every node to its right must have a greater value\
+    } else if (value > node.data) { // every node to its right must have a greater value
       node.right = this.insertRecursive(node.right, value);
+    }
+
+    return node;
+  }
+
+  // accepts a value and removes it from the tree
+  deleteItem(value) {
+    // do nothing if the value does not exist in the tree
+    if (!this.includes(value)) return;
+
+    return this.deleteItemRecursive(this.root, value);
+  }
+
+  deleteItemRecursive(node, value) {
+    // base case
+    if (node == null) return node;
+
+    // value found
+    if (node.data == value) {
+      // directly remove node if it has no children
+      // if node has one child remove node and connect its parent directly to its only child
+      if (node.left == null) {
+        return node.right;
+      } else if (node.right == null) {
+        return node.left;
+      } else { // if node has two children
+        // find the successor/predecessor which is smallest in right subtree
+        let successor = node.right;
+        while (successor != null && successor.left != null) {
+          successor = successor.left;
+        }
+        
+        // replace node with its inorder successor/predecessor 
+        node.data = successor.data;
+
+        // delete node
+        node.right = this.deleteItemRecursive(node.right, successor.data);
+      }
+  
+    } else if (value < node.data) { // every node to its left must have a lower value
+      node.left = this.deleteItemRecursive(node.left, value);
+    
+    } else if (value > node.data) { // every node to its right must have a higher value
+      node.right = this.deleteItemRecursive(node.right, value);
     }
 
     return node;
