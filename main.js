@@ -33,3 +33,7 @@ tree.levelOrderForEach((value) => {
 tree.inOrderForEach((value) => {
   console.log(value);
 });
+
+tree.preOrderForEach((value) => {
+  console.log(value);
+});
