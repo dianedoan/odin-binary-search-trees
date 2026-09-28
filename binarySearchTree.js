@@ -111,7 +111,7 @@ class Tree {
         while (successor != null && successor.left != null) {
           successor = successor.left;
         }
-        
+
         // replace node with its inorder successor/predecessor 
         node.data = successor.data;
 
@@ -127,6 +127,38 @@ class Tree {
     }
 
     return node;
+  }
+
+  // accepts a callback function as its parameter and traverses the tree in breadth-first level order and call the callback on each value as it traverses, passing each value (not the nodes) as an argument
+  levelOrderForEach(callback) {
+    // if no callback function is provided, throw an Error reporting that a callback is required
+    if (typeof callback !== "function") {
+      throw new Error("A callback function is required!");
+    }
+
+    // empty tree
+    if (this.root == null) return;
+
+    // child nodes yet to traverse
+    const queue = [this.root];
+    
+    // traverse tree in breadth-level order
+    while (queue.length > 0) {
+      const currentNode = queue.shift(); // first node in queue
+
+      // call the callback function and pass the node value 
+      callback(currentNode.data);
+
+      // add untraversed child nodes to queue
+      if (currentNode.left != null) {
+        queue.push(currentNode.left);
+      }
+
+      if (currentNode.right != null) {
+        queue.push(currentNode.right);
+      }
+    }
+    
   }
 
 }

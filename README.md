@@ -10,6 +10,8 @@ The `Tree` class contains the following functions:
   - The function does nothing if it is called with a value that already exists in the tree
 - `deleteItem(value)` accepts a value and removes it from the tree
   - The function does nothing if the given value doesn't exist in the tree
+- `levelOrderForEach(callback)` accepts a callback function as its parameter, traverses the tree in breadth-first level order, and calls the callback on each value as it traverses passing each value (not the nodes) as an argument
+  - If no callback function is provided it throws an `Error` reporting that a callback is required
 
 ## Description
 This project demonstrates the skills learnt from the JavaScript Course in The Odin Project up until the [Common Data Structures and Algorithms](https://www.theodinproject.com/lessons/javascript-common-data-structures-and-algorithms) topic.
