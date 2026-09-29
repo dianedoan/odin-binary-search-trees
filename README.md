@@ -21,6 +21,9 @@ The `Tree` class contains the following functions:
 - `height(value)` returns the height of the node containing the given value
   - Height is defined as the number of edges in the longest path from that node to a leaf node
   - If the value is not found in the tree, the function returns `undefined`
+- `depth(value)` returns the depth of the node containing the given value
+  - depth is defined as the number of edges in the path from that node to the root node
+  - If the value is not found in the tree, the function returns `undefined`
 
 ## Description
 This project demonstrates the skills learnt from the JavaScript Course in The Odin Project up until the [Common Data Structures and Algorithms](https://www.theodinproject.com/lessons/javascript-common-data-structures-and-algorithms) topic.

@@ -43,3 +43,4 @@ tree.postOrderForEach((value) => {
 });
 
 console.log(tree.height(4));
+console.log(tree.depth(4));

@@ -267,6 +267,27 @@ class Tree {
     return 1 + Math.max(leftHeight, rightHeight);
   }
 
+  // returns the depth of the node containing the given value
+  depth(value) {
+    // value is not found
+    if (!this.includes(value)) return undefined;
+
+    // calculate the path from root node to node
+    return this.depthRecursive(this.root, value, 0);
+  }
+
+  depthRecursive(node, value, depth) {
+    // value found
+    if (node.data == value) return depth;
+
+    // search for value
+    if (value < node.data) {
+      return this.depthRecursive(node.left, value, depth + 1);
+    } else if (value > node.data) {
+      return this.depthRecursive(node.right, value, depth + 1);
+    }
+  }
+
 }
 
 export { Node, Tree };
