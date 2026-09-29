@@ -310,6 +310,22 @@ class Tree {
     return (this.isBalancedRecursive(node.left) && this.isBalancedRecursive(node.right));
   }
 
+  // rebalances aan unbalanced tree
+  rebalance() {
+    // balanced already
+    if (this.isBalanced()) return;
+
+    // create array for rebalanced tree
+    const rebalanced = [];
+
+    // get values in sorted ascending order
+    this.inOrderForEach((value) => {
+      rebalanced.push(value);
+    });
+
+    // build newly balanced tree
+    this.root = this.buildTree(rebalanced);
+  }
 }
 
 export { Node, Tree };

@@ -26,6 +26,7 @@ The `Tree` class contains the following functions:
   - If the value is not found in the tree, the function returns `undefined`
 - `isBalanced()` checks if the tree is balanced
   - A binary tree is considered balanced if for every node in the tree the height difference between its left and right subtrees is no more than 1 and both the left and right subtrees are also balanced
+- `rebalance()` rebalances an unbalanced tree
 
 ## Description
 This project demonstrates the skills learnt from the JavaScript Course in The Odin Project up until the [Common Data Structures and Algorithms](https://www.theodinproject.com/lessons/javascript-common-data-structures-and-algorithms) topic.

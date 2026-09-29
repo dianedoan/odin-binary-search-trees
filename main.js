@@ -48,3 +48,6 @@ tree.insert(8);
 tree.insert(9);
 prettyPrint(tree.root);
 console.log(tree.isBalanced());
+tree.rebalance();
+prettyPrint(tree.root);
+console.log(tree.isBalanced());
