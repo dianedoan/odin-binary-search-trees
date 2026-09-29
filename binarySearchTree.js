@@ -233,6 +233,39 @@ class Tree {
     // visit current node
     callback(node.data);
   }
+  
+  // returns the height of the node containing the given value
+  height(value) {
+    // value is not found
+    if (!this.includes) return undefined;
+
+    // calculate longest path from node to leaf node
+    return this.heightRecursive(this.root, value, 0);
+  }
+  
+  heightRecursive(node, value, height) {
+    // value found
+    if (node.data == value) {
+      return this.calculateHeight(node);
+    }
+    
+    // search for value
+    if (value < node.data) {
+      return this.heightRecursive(node.left, value, height + 1);
+    } else if (value > node.data) {
+      return this.heightRecursive(node.right, value, height + 1);
+    }
+  }
+
+  calculateHeight(node) {
+    // base case
+    if (node == null) return -1;
+
+    const leftHeight = this.calculateHeight(node.left);
+    const rightHeight = this.calculateHeight(node.right);
+
+    return 1 + Math.max(leftHeight, rightHeight);
+  }
 
 }
 

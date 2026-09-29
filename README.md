@@ -18,6 +18,9 @@ The `Tree` class contains the following functions:
   - If no callback function is provided it throws an `Error` reporting that a callback is required
 - `postOrderForEach(callback)` accepts a callback as a parameter and traverses the tree in depth-first postorder traversal (root -> left -> right) and passes each value to the provided callback
   - If no callback function is provided it throws an `Error` reporting that a callback is required
+- `height(value)` returns the height of the node containing the given value
+  - Height is defined as the number of edges in the longest path from that node to a leaf node
+  - If the value is not found in the tree, the function returns `undefined`
 
 ## Description
 This project demonstrates the skills learnt from the JavaScript Course in The Odin Project up until the [Common Data Structures and Algorithms](https://www.theodinproject.com/lessons/javascript-common-data-structures-and-algorithms) topic.
