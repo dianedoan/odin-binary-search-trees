@@ -288,6 +288,28 @@ class Tree {
     }
   }
 
+  // checks if a tree is balanced
+  isBalanced() {
+    return this.isBalancedRecursive(this.root);
+  }
+  
+  isBalancedRecursive(node) {
+    // base case
+    if (node == null) return true;
+
+    // calculate heights of left and right subtrees
+    const leftHeight = this.calculateHeight(node.left);
+    const rightHeight = this.calculateHeight(node.right);
+
+    // check height difference between left and right subtrees
+    if (Math.abs(leftHeight - rightHeight) > 1) {
+      return false;
+    } 
+
+    // keep checking left and right subtrees
+    return (this.isBalancedRecursive(node.left) && this.isBalancedRecursive(node.right));
+  }
+
 }
 
 export { Node, Tree };

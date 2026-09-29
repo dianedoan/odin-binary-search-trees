@@ -5,7 +5,7 @@ This project consists of two classes:
 
 The `Tree` class contains the following functions:
 - `buildTree(array)` takes an array of numbers and turns it into a balanced binary tree full of `Node` objects appropriately placed (sorted and duplicates removed) and returns the level-0 root node
-- `insert(value)` accepts a value and returns `true` if the given value is in the tree and `false` if it is not found in the tree
+- `includes(value)` accepts a value and returns `true` if the given value is in the tree and `false` if it is not found in the tree
 - `insert(value)` accepts a value and inserts a new node with that value into the tree that preserves the binary search property
   - The function does nothing if it is called with a value that already exists in the tree
 - `deleteItem(value)` accepts a value and removes it from the tree
@@ -24,6 +24,8 @@ The `Tree` class contains the following functions:
 - `depth(value)` returns the depth of the node containing the given value
   - depth is defined as the number of edges in the path from that node to the root node
   - If the value is not found in the tree, the function returns `undefined`
+- `isBalanced()` checks if the tree is balanced
+  - A binary tree is considered balanced if for every node in the tree the height difference between its left and right subtrees is no more than 1 and both the left and right subtrees are also balanced
 
 ## Description
 This project demonstrates the skills learnt from the JavaScript Course in The Odin Project up until the [Common Data Structures and Algorithms](https://www.theodinproject.com/lessons/javascript-common-data-structures-and-algorithms) topic.

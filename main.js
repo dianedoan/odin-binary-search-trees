@@ -20,27 +20,31 @@ prettyPrint(tree.root);
 
 console.log(tree.includes(1));
 console.log(tree.includes(0));
-console.log(tree.insert(8));
+
+tree.insert(8);
 prettyPrint(tree.root);
 
-console.log(tree.deleteItem(8));
+tree.deleteItem(8);
 prettyPrint(tree.root);
 
 tree.levelOrderForEach((value) => {
   console.log(value);
 });
-
 tree.inOrderForEach((value) => {
   console.log(value);
 });
-
 tree.preOrderForEach((value) => {
   console.log(value);
 });
-
 tree.postOrderForEach((value) => {
   console.log(value);
 });
 
 console.log(tree.height(4));
 console.log(tree.depth(4));
+
+console.log(tree.isBalanced());
+tree.insert(8);
+tree.insert(9);
+prettyPrint(tree.root);
+console.log(tree.isBalanced());
