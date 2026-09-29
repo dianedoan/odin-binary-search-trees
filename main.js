@@ -10,44 +10,84 @@ const prettyPrint = (node, prefix = '', isLeft = true) => {
   prettyPrint(node.left, `${prefix}${isLeft ? '    ' : '│   '}`, true);
 }
 
-// const array = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
-const array = [7, 1, 3, 2, 1, 6, 4, 5];
+// takes size as the array size and creates an array of random numbers with each element having a value less than 100
+function createArray(size) {
+  const array = [];
 
+  for (let i = 0; i < size; i++) {
+    let randNum = Math.floor(Math.random() * 100) + 1;
+    array.push(randNum);
+  }
+
+  return array;
+}
+
+const array = createArray(10);
 const tree = new Tree(array);
 
 console.log(tree);
 prettyPrint(tree.root);
+console.log(tree.isBalanced());
 
-console.log(tree.includes(1));
-console.log(tree.includes(0));
-
-tree.insert(8);
-prettyPrint(tree.root);
-
-tree.deleteItem(8);
-prettyPrint(tree.root);
+const levelOrder = [];
+const preOrder = [];
+const postOrder = [];
+const inOrder = [];
 
 tree.levelOrderForEach((value) => {
-  console.log(value);
+  levelOrder.push(value);
 });
-tree.inOrderForEach((value) => {
-  console.log(value);
-});
+console.log("Level order traversal: " + levelOrder);
+levelOrder.length = 0;
+
 tree.preOrderForEach((value) => {
-  console.log(value);
+  preOrder.push(value);
 });
+console.log("Preorder traversal: " + preOrder);
+preOrder.length = 0;
+
 tree.postOrderForEach((value) => {
-  console.log(value);
+  postOrder.push(value);
 });
+console.log("Postorder traversal: " + postOrder);
+postOrder.length = 0;
 
-console.log(tree.height(4));
-console.log(tree.depth(4));
+tree.inOrderForEach((value) => {
+  inOrder.push(value);
+});
+console.log("Inorder traversal: " + inOrder);
+inOrder.length = 0;
 
-console.log(tree.isBalanced());
-tree.insert(8);
-tree.insert(9);
+tree.insert(101);
+tree.insert(150);
+tree.insert(199);
 prettyPrint(tree.root);
 console.log(tree.isBalanced());
+
 tree.rebalance();
 prettyPrint(tree.root);
 console.log(tree.isBalanced());
+
+tree.levelOrderForEach((value) => {
+  levelOrder.push(value);
+});
+console.log("Level order traversal: " + levelOrder);
+levelOrder.length = 0;
+
+tree.preOrderForEach((value) => {
+  preOrder.push(value);
+});
+console.log("Preorder traversal: " + preOrder);
+preOrder.length = 0;
+
+tree.postOrderForEach((value) => {
+  postOrder.push(value);
+});
+console.log("Postorder traversal: " + postOrder);
+postOrder.length = 0;
+
+tree.inOrderForEach((value) => {
+  inOrder.push(value);
+});
+console.log("Inorder traversal: " + inOrder);
+inOrder.length = 0;

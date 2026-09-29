@@ -28,5 +28,15 @@ The `Tree` class contains the following functions:
   - A binary tree is considered balanced if for every node in the tree the height difference between its left and right subtrees is no more than 1 and both the left and right subtrees are also balanced
 - `rebalance()` rebalances an unbalanced tree
 
+The driver script in `main.js` does the following:
+- Creates a binary search tree from an array of random numbers with each element having a value less than 100. 
+- Confirms that the tree is balanced by calling `isBalanced()`.
+- Prints out all elements in level, pre, post, and in order.
+- Unbalances the tree by adding several numbers whose value is more than 100.
+- Confirms that the tree is unbalanced by calling `isBalanced()`.
+- Balances the tree by calling `rebalance()`.
+- Confirms that the tree is balanced by calling `isBalanced()`.
+- Prints out all elements in level, pre, post, and in order.
+
 ## Description
 This project demonstrates the skills learnt from the JavaScript Course in The Odin Project up until the [Common Data Structures and Algorithms](https://www.theodinproject.com/lessons/javascript-common-data-structures-and-algorithms) topic.
